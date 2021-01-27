@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "The Mostly Adequate Guide to Functional Programming",
   "dependencies": {
-    "gitbook-plugin-include-codeblock": "^3.2.2",
-    "gitbook-plugin-exercises": "MostlyAdequate/plugin-exercises"
+    "@mostly-adequate/support": "^2.0.1",
+    "gitbook-plugin-exercises": "MostlyAdequate/plugin-exercises",
+    "gitbook-plugin-include-codeblock": "^3.2.2"
   },
   "devDependencies": {
     "gitbook-cli": "^2.3.2"

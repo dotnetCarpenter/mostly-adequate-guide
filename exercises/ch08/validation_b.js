@@ -9,6 +9,8 @@ assert(
   'The function gives incorrect results.',
 );
 
+// console.warn(initial.callees)
+
 assert.arrayEqual(
   initial.callees || [],
   ['safeProp', 'map'],

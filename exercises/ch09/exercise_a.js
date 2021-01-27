@@ -13,5 +13,17 @@
 //
 // Use `safeProp` and `map/join` or `chain` to safely get the street name when given a user
 
+const debug = x => {
+	debugger
+	return x
+}
+
 // getStreetName :: User -> Maybe String
-const getStreetName = undefined;
+const getStreetName = compose(
+	chain(safeProp('name')),
+	chain(safeProp('street')),
+	safeProp('address'),
+);
+
+// trace('user', albert)
+// trace('getStreetName', getStreetName(albert))

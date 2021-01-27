@@ -559,7 +559,7 @@ class Task {
   }
 }
 
-// In nodejs the existance of a class method named `inspect` will trigger a deprecation warning
+// In nodejs the existence of a class method named `inspect` will trigger a deprecation warning
 // when passing an instance to `console.log`:
 // `(node:3845) [DEP0079] DeprecationWarning: Custom inspection function on Objects via .inspect() is deprecated`
 // The solution is to alias the existing inspect method with the special inspect symbol exported by node
@@ -724,6 +724,15 @@ const filter = curry(function filter(fn, xs) {
   return xs.filter(fn);
 });
 
+const find = curry(function find(fn, xs) {
+  assert(
+    typeof fn === 'function' && Array.isArray(xs),
+    typeMismatch('(a -> Boolean) -> [a] -> a', [getType(fn), getType(xs), getType(xs)].join(' -> '), 'find'),
+  );
+
+  return xs.find(fn);
+});
+
 const flip = curry(function flip(fn, a, b) {
   assert(
     typeof fn === 'function',
@@ -799,9 +808,13 @@ const reduce = curry(function reduce(fn, zero, xs) {
   );
 });
 
+// replace :: RegExp -> String -> String -> String
+const replace = curry(function replace (re, rpl, str) { return str.replace(re, rpl); });
+
 const safeHead = namedAs('safeHead', compose(Maybe.of, head));
 
 const safeProp = curry(function safeProp(p, obj) { return Maybe.of(prop(p, obj)); });
+// const safeProp = function safeProp (p) { return compose(Maybe.of, prop(p)) }
 
 const sortBy = curry(function sortBy(fn, xs) {
   assert(
@@ -853,6 +866,8 @@ const toUpperCase = function toUpperCase(s) {
 
   return s.toUpperCase();
 };
+
+const trace = curry((tag, x) => (console.log(tag, x), x));
 
 
 /* ---------- Chapter 4 ---------- */
@@ -1071,6 +1086,7 @@ if (typeof module === 'object') {
     concat,
     eq,
     filter,
+    find,
     flip,
     forEach,
     head,
@@ -1081,6 +1097,7 @@ if (typeof module === 'object') {
     match,
     prop,
     reduce,
+    replace,
     safeHead,
     safeProp,
     sequence,
@@ -1089,6 +1106,7 @@ if (typeof module === 'object') {
     take,
     toLowerCase,
     toUpperCase,
+    trace,
     traverse,
     unsafePerformIO,
 

@@ -14,4 +14,11 @@
 // Write an IO that gets both player1 and player2 from the cache and starts the game.
 
 // startGame :: IO String
-const startGame = undefined;
+// const startGame = new IO(game)
+// 	.ap(getFromCache('player1'))
+// 	.ap(getFromCache('player2'));
+
+// startGame :: IO String
+const startGame = liftA2(game, getFromCache('player1'), getFromCache('player2'))
+
+// trace('startGame', startGame.unsafePerformIO())
