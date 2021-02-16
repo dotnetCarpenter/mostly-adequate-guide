@@ -5,11 +5,25 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch via NPM",
+			"name": "ch09",
 			"request": "launch",
 			"runtimeArgs": [
 				"run",
 				"ch09"
+			],
+			"cwd": "${workspaceFolder}/exercises",
+			"runtimeExecutable": "npm",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "pwa-node"
+		},
+		{
+			"name": "ch10",
+			"request": "launch",
+			"runtimeArgs": [
+				"run",
+				"ch10"
 			],
 			"cwd": "${workspaceFolder}/exercises",
 			"runtimeExecutable": "npm",
