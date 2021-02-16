@@ -20,7 +20,7 @@ function curry(fn) {
       return $curry.bind(null, ...args);
     }
 
-    return fn.call(null, ...args);
+    return fn(...args);
   };
 }
 
