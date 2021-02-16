@@ -6,7 +6,16 @@
 //   intercalate :: String -> [String] -> String
 
 // strToList :: String -> [Char]
-const strToList = undefined;
+const strToList = split('');
 
 // listToStr :: [Char] -> String
-const listToStr = undefined;
+const listToStr = intercalate('');
+
+// console.log(
+// 	strToList('Hello World'),
+// 	listToStr([
+// 		'H', 'e', 'l', 'l','o',
+// 		' ',
+// 		'W', 'o',	'r', 'l', 'd'
+// 	])
+// )
